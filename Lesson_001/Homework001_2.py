@@ -1,6 +1,6 @@
 # Задача 2.
 # Найти максимальное из пяти чисел.
 
-list = [1, 12, 83, 34, 5]
-max_number = max (list)
+str = [1, 12, 83, 34, 5]
+max_number = max(str)
 print(f'Наибольшее число: {max_number}')

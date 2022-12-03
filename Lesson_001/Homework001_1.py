@@ -3,4 +3,4 @@
 
 a = int(input('Введите a: '))
 b = int(input('Введите b: '))
-print(a==b**2)
+print(a == b ** 2)
