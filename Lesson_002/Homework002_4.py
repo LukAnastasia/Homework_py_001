@@ -4,11 +4,15 @@
 # Позиции хранятся в списке positions - создайте этот список 
 # (например: positions = [1, 3, 6]).
 
-
-# не решено
-
-
-pos_1 = int(input('Введите первую позицию: '))
-pos_2 = int(input('Введите вторую позицию: '))
-n = int(input('Введиет номер: '))
-positions = []
+import random
+positions = [1, 3, 6]
+n = int(input('Введите целое число: '))
+list_numbers = []
+for i in range(n):
+    list_numbers.append(random.randint(-n, n))
+print(list_numbers)
+mult_num = 1
+for i in positions:
+    if i <= len(list_numbers):
+        mult_num *= list_numbers[i - 1]
+print(mult_num)

@@ -1,9 +1,11 @@
 # Задача 1
 # Подсчитать сумму цифр в вещественном числе.
 
-n = int(input('Введите число: '))
+input_num = input('Введите число: ')
 res_sum = 0
-while (n != 0):
-    res_sum = res_sum + n % 10
-    n = n // 10
-print("Сумма цифр числа равна: ", res_sum)
+for i in input_num:
+    if i.isdigit():
+        res_sum += int(i)
+print(res_sum)
+
+
