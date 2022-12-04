@@ -4,10 +4,10 @@
 # Пример:
 # [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
+from random import uniform
 size = 5
 first = 1
 last = 9
-from random import uniform
 def get_numbers (size, first, last):
     return [round(uniform(first,last), 2) for i in range(size)]
 
