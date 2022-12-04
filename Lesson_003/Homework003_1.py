@@ -4,10 +4,10 @@
 # Пример:
 # [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
+from random import randint         #import должен быть выше строк кода
 size = 5
 first = 0
 last = 9
-from random import randint
 def get_list(size, first, last):
     return [randint(first, last) for i in range(size)]
 

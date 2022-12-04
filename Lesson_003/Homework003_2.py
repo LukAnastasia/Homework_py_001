@@ -4,17 +4,16 @@
 # [2, 3, 4, 5, 6] => [12, 15, 16];
 # [2, 3, 5, 6] => [12, 15]
 
-# не решила
 
-size = 5
+from random import randint
+size = 6
 first = 1
 last = 9
-from random import randint
-import math
 def get_numbers(size, first, last):
     return [randint(first, last) for i in range(size)]
-
-
-    
 my_list = get_numbers(size, first, last)
+res_list = []
+for i in range((len(my_list)+ 1) // 2):
+    res_list.append(my_list[i] * my_list[-1 - i])
 print(my_list)
+print(res_list)
