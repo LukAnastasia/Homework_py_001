@@ -7,8 +7,8 @@ from random import randint
 def new_list(size, m, n):
     return [randint(m, n) for i in range(size)]
 
-def get_value(list):
-    return [i for i in set(list)]
+def get_value(lst):
+    return [i for i in set(lst)]
 
 size = 5
 m = 1
