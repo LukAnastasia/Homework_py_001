@@ -34,44 +34,71 @@
 #     data.write(polynom1)
 
     
-import random
+# import random
 
 
-def write_file(st):
-    with open('Polynomial.txt', 'w') as data:
-        data.write(st)
+# def write_file(st):
+#     with open('Polynomial.txt', 'w') as data:
+#         data.write(st)
 
 
-def rnd():
-    return random.randint(0,101)
+# def rnd():
+#     return random.randint(0,101)
 
 
-def create_mn(k):
-    lst = [rnd() for i in range(k+1)]
-    return lst
+# def create_mn(k):
+#     lst = [rnd() for i in range(k+1)]
+#     return lst
     
 
-def create_str(sp):
-    lst= sp[::-1]
-    wr = ''
-    if len(lst) < 1:
-        wr = 'x = 0'
-    else:
-        for i in range(len(lst)):
-            if i != len(lst) - 1 and lst[i] != 0 and i != len(lst) - 2:
-                wr += f'{lst[i]}x*{len(lst)-i-1}'
-                if lst[i+1] != 0:
-                    wr += ' + '
-            elif i == len(lst) - 2 and lst[i] != 0:
-                wr += f'{lst[i]}x'
-                if lst[i+1] != 0:
-                    wr += ' + '
-            elif i == len(lst) - 1 and lst[i] != 0:
-                wr += f'{lst[i]} = 0'
-            elif i == len(lst) - 1 and lst[i] == 0:
-                wr += ' = 0'
-    return wr
+# def create_str(sp):
+#     lst= sp[::-1]
+#     wr = ''
+#     if len(lst) < 1:
+#         wr = 'x = 0'
+#     else:
+#         for i in range(len(lst)):
+#             if i != len(lst) - 1 and lst[i] != 0 and i != len(lst) - 2:
+#                 wr += f'{lst[i]}x^{len(lst)-i-1}'
+#                 if lst[i+1] != 0:
+#                     wr += ' + '
+#             elif i == len(lst) - 2 and lst[i] != 0:
+#                 wr += f'{lst[i]}x'
+#                 if lst[i+1] != 0:
+#                     wr += ' + '
+#             elif i == len(lst) - 1 and lst[i] != 0:
+#                 wr += f'{lst[i]} = 0'
+#             elif i == len(lst) - 1 and lst[i] == 0:
+#                 wr += ' = 0'
+#     return wr
 
-k = int(input("Введите натуральную степень k = "))
-koef = create_mn(k)
-write_file(create_str(koef))
+# k = int(input("Введите натуральную степень k = "))
+# koef = create_mn(k)
+# write_file(create_str(koef))
+
+import random
+import re
+
+input_str = '54x^4-22x^3+34x^2+5x+18=0'
+pattern = r'([+-]?\d+)x\^?(\d*)|(\d*)=0$'
+# pattern = r'([-+]?\d*)(x\^*\d*)*'
+# pattern2 = r'([-+]?\d*)(x\^*\d*)*|(\=0)'
+
+# res = re.findall(pattern, input_str)
+# print(res)
+# re.compile()
+
+
+output = re.compile(pattern)
+result = output.findall(input_str)
+print(result)
+print(int(result[1][0]))
+res_dict = dict()
+for i in result:
+    if i[1]:
+        res_dict[int(i[1])] = int(i[0])
+    elif i[1] == '' and i[0]:
+        res_dict[1] = int(i[0])
+    elif i[2]:
+        res_dict[0] = int(i[2])
+print(res_dict)
