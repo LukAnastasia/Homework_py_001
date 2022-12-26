@@ -85,6 +85,3 @@ def newcontact():
  
 main_menu()
 
-
-
-# hgjhgjhgjh
