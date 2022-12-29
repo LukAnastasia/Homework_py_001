@@ -2,8 +2,8 @@
 
 
 filename = "phonebook.txt" 
-myfile = open(filename, "a+") 
-myfile.close 
+myfile = open(filename, "a+", encoding='cp1251') 
+myfile.close() 
  
 # главное меню
 def main_menu(): 
@@ -15,28 +15,28 @@ def main_menu():
     print( "4. Выход") 
     choice = input("Введите ID нужной функции и нажмите Enter: ") 
     if choice == "1": 
-        myfile = open(filename, "r+") 
+        myfile = open(filename, "r+",encoding='cp1251') 
         filecontents = myfile.read() 
         if len(filecontents) == 0: 
             print( "Вы ввели неверные данные") 
         else: 
             print(filecontents) 
         myfile.close 
-        enter = input("Нажмите Enter для продолжения ...") 
+        input("Нажмите Enter для продолжения ...") 
         main_menu() 
     elif choice == "2": 
         newcontact() 
-        enter = input("Нажмите Enter для продолжения ...") 
+        input("Нажмите Enter для продолжения ...") 
         main_menu() 
     elif choice == "3": 
         searchcontact() 
-        enter = input("Нажмите Enter для продолжения ...") 
+        input("Нажмите Enter для продолжения ...") 
         main_menu() 
     elif choice == "4": 
         print("Спасибо, что воспользовались телефонным справочником!") 
     else: 
         print( "Вы ввели некорректные данные!\n") 
-        enter = input( "Нажмите Enter для продолжения ...") 
+        input( "Нажмите Enter для продолжения ...") 
         main_menu() 
  
 # поиск       
@@ -45,7 +45,7 @@ def searchcontact():
     remname = searchname[1:] 
     firstchar = searchname[0] 
     searchname = firstchar.upper() + remname 
-    myfile = open(filename, "r+") 
+    myfile = open(filename, "r+",encoding='cp1251') 
     filecontents = myfile.readlines() 
 
       
@@ -79,7 +79,7 @@ def newcontact():
     phoneNum = input( "Введите номер телефона: ") 
     emailID = input( "Введите E-mail: ") 
     contactDetails =("[" + firstname + " " + lastname + ", " + phoneNum + ", " + emailID +  "]\n") 
-    myfile = open(filename, "a") 
+    myfile = open(filename, "a",encoding='cp1251') 
     myfile.write(contactDetails) 
     print( "\nДанные:\n " + contactDetails + "\nбыли успешно сохранены!\n") 
  
